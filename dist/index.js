@@ -610,7 +610,7 @@ var inBrowser = typeof window !== 'undefined';
             tempItem.desc = event.desc || '';
             tempItem.firstEvent |= event.firstEvent;
             tempItem.secondEvent |= event.secondEvent;
-            if (event.customClass) tempItem.customClass.push(event.customClass);
+            if (event.customClass && event.firstEvent) tempItem.customClass.push(event.customClass);
           }
         });
         tempArr.push(tempItem);
