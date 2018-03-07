@@ -263,6 +263,7 @@ export default {
           float: left;
           display: block;
           width: 14.285%;
+          height: 55px;
           cursor: default;
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
           .date-num{
@@ -270,15 +271,28 @@ export default {
             position: relative;
             z-index: 3;
           }
+
+          .is-first-event {
+            margin-left: 7px;
+            width: 36px;
+            border-bottom: 2px solid @base-orange;
+          }
+          .is-second-event {
+            margin-left: 7px;
+            width: 36px;
+            margin-top: 2px;
+            border-bottom: 2px solid @gray-dark;
+          }
+
           &.event{
             cursor: pointer;
           }
           &.selected-day{
-            .is-event{
-              background-color: @base-orange;
+            span {
+              border: 3px solid @base-orange;
             }
           }
-          .is-event{
+          .is-today{
             content: '';
             border: 1px solid @base-orange;
             background-color: #fff;
@@ -290,21 +304,7 @@ export default {
             top: 50%;
             z-index: 1;
             margin-left: -18px;
-            margin-top: -19px;
-          }
-          .is-today{
-            content: '';
-            background-color: @base-orange;
-            border-radius: 50%;
-            opacity: .8;
-            width: 12px;
-            height: 4px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            z-index: 2;
-            margin-left: -6px;
-            margin-top: 8px;
+            margin-top: -26px;
           }
         }
       }

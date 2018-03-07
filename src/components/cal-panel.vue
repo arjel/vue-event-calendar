@@ -28,9 +28,18 @@
             @click="handleChangeCurday(date)"
             :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
             {{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
-          <span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>
-          <span v-if="date.status ? (date.title != undefined) : false" class="is-event"
-            :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>
+
+          <p
+            v-if="date.status & date.firstEvent"
+            class="is-first-event"
+          ></p>
+
+          <p
+            v-if="date.status & date.secondEvent"
+            class="is-second-event"
+          ></p>
+
+          <span v-if="date.status ? (today == date.date || date.date == selectedDay) : false" class="is-today" ></span>
         </div>
       </div>
     </div>
@@ -90,12 +99,16 @@ export default {
           tempItem = {
             date: `${item.getFullYear()}/${item.getMonth()+1}/${item.getDate()}`,
             status: status,
-            customClass: []
+            customClass: [],
+            firstEvent: false,
+            secondEvent: false
           }
           this.events.forEach((event) => {
             if (isEqualDateStr(event.date, tempItem.date)) {
               tempItem.title = event.title
               tempItem.desc = event.desc || ''
+              tempItem.firstEvent |= event.firstEvent
+              tempItem.secondEvent |= event.secondEvent
               if (event.customClass) tempItem.customClass.push(event.customClass)
             }
           })

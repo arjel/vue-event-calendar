@@ -533,6 +533,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -590,12 +599,16 @@ var inBrowser = typeof window !== 'undefined';
         tempItem = {
           date: item.getFullYear() + '/' + (item.getMonth() + 1) + '/' + item.getDate(),
           status: status,
-          customClass: []
+          customClass: [],
+          firstEvent: false,
+          secondEvent: false
         };
         this.events.forEach(function (event) {
           if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["a" /* isEqualDateStr */])(event.date, tempItem.date)) {
             tempItem.title = event.title;
             tempItem.desc = event.desc || '';
+            tempItem.firstEvent |= event.firstEvent;
+            tempItem.secondEvent |= event.secondEvent;
             if (event.customClass) tempItem.customClass.push(event.customClass);
           }
         });
@@ -1076,17 +1089,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.handleChangeCurday(date)
         }
       }
-    }, [_vm._v("\n          " + _vm._s(date.status ? date.date.split('/')[2] : ' '))]), _vm._v(" "), (date.status ? (_vm.today == date.date) : false) ? _c('span', {
-      staticClass: "is-today",
-      style: ({
-        backgroundColor: _vm.customColor
-      })
-    }) : _vm._e(), _vm._v(" "), (date.status ? (date.title != undefined) : false) ? _c('span', {
-      staticClass: "is-event",
-      style: ({
-        borderColor: _vm.customColor,
-        backgroundColor: (date.date == _vm.selectedDay) ? _vm.customColor : 'inherit'
-      })
+    }, [_vm._v("\n          " + _vm._s(date.status ? date.date.split('/')[2] : ' '))]), _vm._v(" "), (date.status & date.firstEvent) ? _c('p', {
+      staticClass: "is-first-event"
+    }) : _vm._e(), _vm._v(" "), (date.status & date.secondEvent) ? _c('p', {
+      staticClass: "is-second-event"
+    }) : _vm._e(), _vm._v(" "), (date.status ? (_vm.today == date.date || date.date == _vm.selectedDay) : false) ? _c('span', {
+      staticClass: "is-today"
     }) : _vm._e()])
     var _obj;
   }))])])
