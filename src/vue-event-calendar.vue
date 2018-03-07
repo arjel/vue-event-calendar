@@ -263,7 +263,7 @@ export default {
           float: left;
           display: block;
           width: 14.285%;
-          height: 55px;
+          height: 40px;
           cursor: default;
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
           .date-num{
@@ -273,13 +273,13 @@ export default {
           }
 
           .is-first-event {
-            margin-left: 7px;
-            width: 36px;
+            margin-left: 11px;
+            width: 30px;
             border-bottom: 2px solid @base-orange;
           }
           .is-second-event {
-            margin-left: 7px;
-            width: 36px;
+            margin-left: 11px;
+            width: 30px;
             margin-top: 2px;
             border-bottom: 2px solid @gray-dark;
           }
@@ -292,7 +292,7 @@ export default {
               border: 3px solid @base-orange;
             }
           }
-          .is-today{
+          .is-circle{
             content: '';
             border: 1px solid @base-orange;
             background-color: #fff;

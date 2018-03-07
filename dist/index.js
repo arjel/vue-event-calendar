@@ -542,6 +542,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -1076,8 +1077,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       key: date.date,
       staticClass: "item",
       class: [( _obj = {
-        today: date.status ? (_vm.today == date.date) : false,
-        event: date.status ? (date.title != undefined) : false
+        'today': date.status ? (_vm.today == date.date) : false,
+        'first-event': date.status ? (date.title != undefined && date.firstEvent) : false,
+        'second-event': date.status ? (date.title != undefined && date.secondEvent) : false
       }, _obj[_vm.calendar.options.className] = (date.date == _vm.selectedDay), _obj ) ].concat( date.customClass)
     }, [_c('p', {
       staticClass: "date-num",
@@ -1094,7 +1096,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }) : _vm._e(), _vm._v(" "), (date.status & date.secondEvent) ? _c('p', {
       staticClass: "is-second-event"
     }) : _vm._e(), _vm._v(" "), (date.status ? (_vm.today == date.date || date.date == _vm.selectedDay) : false) ? _c('span', {
-      staticClass: "is-today"
+      staticClass: "is-circle"
     }) : _vm._e()])
     var _obj;
   }))])])

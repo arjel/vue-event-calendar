@@ -18,8 +18,9 @@
       <div class="dates" >
         <div v-for="date in dayList" class="item"
           :class="[{
-            today: date.status ? (today == date.date) : false,
-            event: date.status ? (date.title != undefined) : false,
+            'today': date.status ? (today == date.date) : false,
+            'first-event': date.status ? (date.title != undefined && date.firstEvent) : false,
+            'second-event': date.status ? (date.title != undefined && date.secondEvent) : false,
             [calendar.options.className] : (date.date == selectedDay)
           }, ...date.customClass]"
           :key="date.date"
@@ -39,7 +40,7 @@
             class="is-second-event"
           ></p>
 
-          <span v-if="date.status ? (today == date.date || date.date == selectedDay) : false" class="is-today" ></span>
+          <span v-if="date.status ? (today == date.date || date.date == selectedDay) : false" class="is-circle" ></span>
         </div>
       </div>
     </div>
