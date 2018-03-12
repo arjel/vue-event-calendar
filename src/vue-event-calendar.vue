@@ -273,12 +273,12 @@ export default {
           }
 
           .is-first-event {
-            margin-left: 11px;
+            margin-left: 10px;
             width: 30px;
             border-bottom: 2px solid @base-orange;
           }
           .is-second-event {
-            margin-left: 11px;
+            margin-left: 10px;
             width: 30px;
             margin-top: 2px;
             border-bottom: 2px solid @gray-dark;
